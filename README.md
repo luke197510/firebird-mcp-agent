@@ -130,6 +130,6 @@ Anthropic Claude / Mistral · Firebird 2.5 (`fdb`) · Streamlit · openpyxl / Re
 
 ---
 
-Progetto realizzato su un gestionale in produzione e qui pubblicato in versione
+Progetto realizzato su un Database in produzione e qui pubblicato in versione
 generalizzata: lo schema del database originale è sostituito da uno schema di esempio,
 e tutte le credenziali sono placeholder.
