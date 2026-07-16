@@ -1,11 +1,11 @@
 # Firebird MCP Agent
 
-Agente LLM che interroga in **linguaggio naturale** un database gestionale legacy
+Agente LLM che interroga in **linguaggio naturale** un database 
 (Firebird 2.5), con **mascheramento dei dati personali** prima dell'invio al modello
 ed esportazione dei risultati in Excel, PDF e Word.
 
 Nasce da un problema reale: in un'azienda i dati che servono alle decisioni sono già
-tutti nel gestionale, ma per estrarli serve qualcuno che sappia scrivere SQL. Chi ha le
+tutti nel database, ma per estrarli serve qualcuno che sappia scrivere SQL. Chi ha le
 domande — chi vende, chi ordina, chi decide — non è quella persona.
 
 ---
@@ -15,18 +15,18 @@ domande — chi vende, chi ordina, chi decide — non è quella persona.
 Collegare un LLM a un database sembra un esercizio da un pomeriggio. Non lo è, per tre
 ragioni che si scoprono solo mettendoci le mani.
 
-**1. I gestionali legacy non parlano SQL standard.** Firebird 2.5 in *Dialect 1* non
+**1. I Database potrebbero non parlare SQL standard.** Firebird 2.5 in *Dialect 1* non
 supporta `CAST(x AS DATE)`, né `CURRENT_DATE`, né i literal `DATE '2024-01-01'`. Un
 modello che genera SQL "da manuale" fallisce sistematicamente sulle query con date —
 cioè su quasi tutte le domande di business. La soluzione non è un modello più grosso: è
 **documentare le eccezioni del dialetto nel system prompt**, così il modello genera SQL
 che funziona al primo colpo.
 
-**2. Non puoi spedire dati personali a un'API di terzi.** Un gestionale contiene nomi,
+**2. Non puoi spedire dati personali a un'API di terzi.** Un database contiene nomi,
 codici fiscali, indirizzi, recapiti. Mandarli a un LLM esterno è un problema di
 compliance, non un dettaglio.
 
-**3. I nomi delle colonne non spiegano niente.** In un gestionale reale un campo si
+**3. I nomi delle colonne non spiegano niente.** In un database reale un campo si
 chiama `KM10` e nessun modello, per quanto capace, può indovinare cosa sia. Lo schema
 va documentato: è il vero lavoro, ed è la parte che determina la qualità del risultato.
 
