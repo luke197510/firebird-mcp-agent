@@ -29,7 +29,7 @@ st.markdown("""
 
 # ── Session state ─────────────────────────────────────────────────────────
 if "db_session" not in st.session_state:
-    with st.spinner("Inizializzazione agente il gestionale..."):
+    with st.spinner("Inizializzazione agente il Database..."):
         st.session_state.db_session = DbSession()
 
 if "chat_history" not in st.session_state:
@@ -48,12 +48,12 @@ with col_chat:
     chat_box = st.container(height=560)
     with chat_box:
         if not st.session_state.chat_history:
-            st.caption("Ciao! Chiedi qualcosa sul gestionale il gestionale.")
+            st.caption("Ciao! Chiedi qualcosa sul Database.")
         for msg in st.session_state.chat_history:
             with st.chat_message(msg["role"]):
                 st.markdown(msg["content"])
 
-    prompt = st.chat_input("Chiedi al gestionale il gestionale...")
+    prompt = st.chat_input("Chiedi al Database...")
 
     if prompt:
         st.session_state.chat_history.append({"role": "user", "content": prompt})
