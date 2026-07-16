@@ -52,7 +52,7 @@ class DbSession:
 
         # Chiusura sui tool per accedere a self._mapping
         def list_tables() -> str:
-            """Elenca tutte le tabelle presenti nel database il gestionale."""
+            """Elenca tutte le tabelle presenti nel database."""
             con = _connect()
             cur = con.cursor()
             try:
@@ -65,7 +65,7 @@ class DbSession:
                 cur.close(); con.close()
 
         def describe_table(table_name: str) -> str:
-            """Descrive le colonne e i tipi di una tabella il gestionale."""
+            """Descrive le colonne e i tipi di una tabella del database."""
             con = _connect()
             cur = con.cursor()
             try:
