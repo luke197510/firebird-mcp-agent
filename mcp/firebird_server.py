@@ -1,5 +1,5 @@
 """
-MCP server per Firebird 2.5 - espone le tabelle il gestionale come tool per l'agente.
+MCP server per Firebird 2.5 - espone le tabelle del database come tool per l'agente.
 Avviare con: python mcp/firebird_server.py
 """
 import os
@@ -11,7 +11,7 @@ from mcp import types
 
 load_dotenv()
 
-app = Server("firebird-gestionale")
+app = Server("firebird-database")
 
 def _connect():
     return fdb.connect(
