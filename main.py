@@ -6,7 +6,7 @@ from agents.db_agent import DbSession
 
 
 def main():
-    print("=== Firebird MCP Agent - Gestionale il gestionale ===")
+    print("=== Firebird MCP Agent - Database ===")
     session = DbSession()
     while True:
         try:
